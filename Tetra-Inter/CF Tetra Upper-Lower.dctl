@@ -1,1 +1,158 @@
+DEFINE_UI_PARAMS(BLK_RGB, Black-Point, DCTLUI_SLIDER_FLOAT, 0.0, -0.25, 1.0, 0.001)
+DEFINE_UI_PARAMS(WHT_RGB, White-Point, DCTLUI_SLIDER_FLOAT, 1.0, 0.0, 1.25, 0.001)
 
+// Red
+DEFINE_UI_PARAMS(RED_RED_U, Red-Hue-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(RED_GRN_U, Red-Sat-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(RED_BLU_U, Red-Value-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(RED_RED_L, Red-Hue-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(RED_GRN_L, Red-Sat-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(RED_BLU_L, Red-Value-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+
+// Green
+DEFINE_UI_PARAMS(GRN_RED_U, Green-Hue-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(GRN_GRN_U, Green-Sat-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(GRN_BLU_U, Green-Value-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(GRN_RED_L, Green-Hue-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(GRN_GRN_L, Green-Sat-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(GRN_BLU_L, Green-Value-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+
+// Blue
+DEFINE_UI_PARAMS(BLU_RED_U, Blue-Hue-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(BLU_GRN_U, Blue-Sat-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(BLU_BLU_U, Blue-Value-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(BLU_RED_L, Blue-Hue-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(BLU_GRN_L, Blue-Sat-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(BLU_BLU_L, Blue-Value-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+
+// Cyan
+DEFINE_UI_PARAMS(CYN_RED_U, Cyan-Hue-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(CYN_GRN_U, Cyan-Sat-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(CYN_BLU_U, Cyan-Value-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(CYN_RED_L, Cyan-Hue-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(CYN_GRN_L, Cyan-Sat-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(CYN_BLU_L, Cyan-Value-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+
+// Magenta
+DEFINE_UI_PARAMS(MAG_RED_U, Magenta-Hue-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(MAG_GRN_U, Magenta-Sat-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(MAG_BLU_U, Magenta-Value-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(MAG_RED_L, Magenta-Hue-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(MAG_GRN_L, Magenta-Sat-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(MAG_BLU_L, Magenta-Value-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+
+// Yellow
+DEFINE_UI_PARAMS(YEL_RED_U, Yellow-Hue-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(YEL_GRN_U, Yellow-Sat-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(YEL_BLU_U, Yellow-Value-Upper, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(YEL_RED_L, Yellow-Hue-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(YEL_GRN_L, Yellow-Sat-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+DEFINE_UI_PARAMS(YEL_BLU_L, Yellow-Value-Lower, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.001)
+
+
+#define RED_HUE_U (RED_BLU_U + 1.0f)
+#define RED_SAT_U (RED_BLU_U - RED_GRN_U)
+#define RED_VAL_U (RED_BLU_U + RED_RED_U - RED_GRN_U)
+#define RED_HUE_L (RED_BLU_L + 1.0f)
+#define RED_SAT_L (RED_BLU_L - RED_GRN_L)
+#define RED_VAL_L (RED_BLU_L + RED_RED_L - RED_GRN_L)
+
+#define GRN_HUE_U (GRN_BLU_U - GRN_GRN_U)
+#define GRN_SAT_U (GRN_BLU_U + 1.0f)
+#define GRN_VAL_U (GRN_BLU_U + GRN_RED_U - GRN_GRN_U)
+#define GRN_HUE_L (GRN_BLU_L - GRN_GRN_L)
+#define GRN_SAT_L (GRN_BLU_L + 1.0f)
+#define GRN_VAL_L (GRN_BLU_L + GRN_RED_L - GRN_GRN_L)
+
+#define BLU_HUE_U (BLU_BLU_U + BLU_RED_U - BLU_GRN_U)
+#define BLU_SAT_U (BLU_BLU_U - BLU_GRN_U)
+#define BLU_VAL_U (BLU_BLU_U + 1.0f)
+#define BLU_HUE_L (BLU_BLU_L + BLU_RED_L - BLU_GRN_L)
+#define BLU_SAT_L (BLU_BLU_L - BLU_GRN_L)
+#define BLU_VAL_L (BLU_BLU_L + 1.0f)
+
+#define CYN_HUE_U (CYN_BLU_U - CYN_GRN_U)
+#define CYN_SAT_U (CYN_BLU_U + 1.0f + CYN_RED_U)
+#define CYN_VAL_U (CYN_BLU_U + 1.0f)
+#define CYN_HUE_L (CYN_BLU_L - CYN_GRN_L)
+#define CYN_SAT_L (CYN_BLU_L + 1.0f + CYN_RED_L)
+#define CYN_VAL_L (CYN_BLU_L + 1.0f)
+
+#define MAG_HUE_U (MAG_BLU_U + 1.0f)
+#define MAG_SAT_U (MAG_BLU_U - MAG_GRN_U)
+#define MAG_VAL_U (MAG_BLU_U + 1.0f + MAG_RED_U)
+#define MAG_HUE_L (MAG_BLU_L + 1.0f)
+#define MAG_SAT_L (MAG_BLU_L - MAG_GRN_L)
+#define MAG_VAL_L (MAG_BLU_L + 1.0f + MAG_RED_L)
+
+#define YEL_HUE_U (YEL_BLU_U + 1.0f + YEL_RED_U)
+#define YEL_SAT_U (YEL_BLU_U + 1.0f)
+#define YEL_VAL_U (YEL_BLU_U - YEL_GRN_U)
+#define YEL_HUE_L (YEL_BLU_L + 1.0f + YEL_RED_L)
+#define YEL_SAT_L (YEL_BLU_L + 1.0f)
+#define YEL_VAL_L (YEL_BLU_L - YEL_GRN_L)
+
+
+__DEVICE__ float3 transform(int p_Width, int p_Height, int p_X, int p_Y, float p_R, float p_G, float p_B)
+{
+    float3 rgb;
+    
+    const float3 blk = make_float3(BLK_RGB, BLK_RGB, BLK_RGB);
+    const float3 wht = make_float3(WHT_RGB, WHT_RGB, WHT_RGB);
+    
+    // Calculate luminance
+    float luminance = 0.2126f * p_R + 0.7152f * p_G + 0.0722f * p_B;
+    
+    // Smoothstep for blending between lower and upper ranges
+    float blend = smoothstep(0.445f - 0.1f, 0.445f + 0.1f, luminance);
+    
+    // Blend between lower and upper values for each color
+    float3 red_u = make_float3(RED_HUE_U, RED_SAT_U, RED_VAL_U);
+    float3 red_l = make_float3(RED_HUE_L, RED_SAT_L, RED_VAL_L);
+    float3 red = _mix(red_l, red_u, blend);
+    
+    // In the transform function:
+    float3 grn_u = make_float3(GRN_HUE_U, GRN_SAT_U, GRN_VAL_U);
+    float3 grn_l = make_float3(GRN_HUE_L, GRN_SAT_L, GRN_VAL_L);
+    float3 grn = _mix(grn_l, grn_u, blend);
+
+    float3 blu_u = make_float3(BLU_HUE_U, BLU_SAT_U, BLU_VAL_U);
+    float3 blu_l = make_float3(BLU_HUE_L, BLU_SAT_L, BLU_VAL_L);
+    float3 blu = _mix(blu_l, blu_u, blend);
+
+    float3 cyn_u = make_float3(CYN_HUE_U, CYN_SAT_U, CYN_VAL_U);
+    float3 cyn_l = make_float3(CYN_HUE_L, CYN_SAT_L, CYN_VAL_L);
+    float3 cyn = _mix(cyn_l, cyn_u, blend);
+
+    float3 mag_u = make_float3(MAG_HUE_U, MAG_SAT_U, MAG_VAL_U);
+    float3 mag_l = make_float3(MAG_HUE_L, MAG_SAT_L, MAG_VAL_L);
+    float3 mag = _mix(mag_l, mag_u, blend);
+
+    float3 yel_u = make_float3(YEL_HUE_U, YEL_SAT_U, YEL_VAL_U);
+    float3 yel_l = make_float3(YEL_HUE_L, YEL_SAT_L, YEL_VAL_L);
+    float3 yel = _mix(yel_l, yel_u, blend);
+    
+    if (p_R > p_G) {
+        if (p_G > p_B) {
+            rgb = p_R * (red - blk) + blk + p_G * (yel - red) + p_B * (wht - yel);
+        } else if (p_R > p_B) {
+            rgb = p_R * (red - blk) + blk + p_G * (wht - mag) + p_B * (mag - red);
+        } else {
+            rgb = p_R * (mag - blu) + p_G * (wht - mag) + p_B * (blu - blk) + blk;
+        }
+    } else {
+        if (p_B > p_G) {
+            rgb = p_R * (wht - cyn) + p_G * (cyn - blu) + p_B * (blu - blk) + blk;
+        } else if (p_B > p_R) {
+            rgb = p_R * (wht - cyn) + p_G * (grn - blk) + blk + p_B * (cyn - grn);
+        } else {
+            rgb = p_R * (yel - grn) + p_G * (grn - blk) + blk + p_B * (wht - yel);
+        }
+    }
+
+    rgb.x = _clampf(rgb.x, 0.0f, 1.0f);
+    rgb.y = _clampf(rgb.y, 0.0f, 1.0f);
+    rgb.z = _clampf(rgb.z, 0.0f, 1.0f);
+    
+    return rgb;
+}
