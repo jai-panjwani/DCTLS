@@ -1,0 +1,103 @@
+//	Adapted by Jaideep Panjwani		
+// 	OKLab code by Björn Ottosson https://bottosson.github.io/posts/oklab/
+
+DEFINE_UI_PARAMS(invert, Invert, DCTLUI_CHECK_BOX, 0)
+
+
+__DEVICE__ float3 DWGOKLab(float3 rgb) {
+    
+    // to CIE 1931 XYZ
+    float X = (rgb.x * 0.70062239f) + (rgb.y * 0.14877482f) + (rgb.z * 0.10105872f);
+    float Y = (rgb.x * 0.274118519f) + (rgb.y * 0.87363190f) + (rgb.z * -0.14775041f);
+    float Z = (rgb.x * -0.09896291f) + (rgb.y * -0.13789533f) + (rgb.z * 1.32591599f);
+
+    // to LMS
+    float l = (X * 0.8189330101f) + (Y * 0.3618667424f) + (Z * -0.1288597137f);
+    float m = (X * 0.0329845436f) + (Y * 0.9293118715f) + (Z * 0.0361456387f);
+    float s = (X * 0.0482003018f) + (Y * 0.2643662691f) + (Z * 0.6338517070f);
+
+    // Non-linearity 
+    l = _copysignf(_powf(_fabs(l), 1.0f / 3.0f), l);
+    m = _copysignf(_powf(_fabs(m), 1.0f / 3.0f), m);
+    s = _copysignf(_powf(_fabs(s), 1.0f / 3.0f), s);
+
+    // to LMS
+    float L = (l * 0.2104542553f) + (m * 0.7936177850f) + (s * -0.0040720468f);
+    float a = (l * 1.9779984951f) + (m * -2.4285922050f) + (s * 0.4505937099f);
+    float b = (l * 0.0259040371f) + (m * 0.7827717662f) + (s * -0.8086757660f);
+
+    return make_float3(L, a, b);
+
+}
+
+__DEVICE__ float3 OKLabDWG(float3 Lab) {
+    
+    // to LMS
+    float l = (Lab.x * 1.000000f) + (Lab.y * 0.3963377774f) + (Lab.z * 0.2158037573f);
+    float m = (Lab.x * 1.000000f) + (Lab.y * -0.1055613458f) + (Lab.z * -0.0638541728f);
+    float s = (Lab.x * 1.000000f) + (Lab.y * -0.0894841775f) + (Lab.z * -1.2914855480f);
+
+    // Inverse non-linearity
+    l = _copysignf(_powf(_fabs(l), 3.0f), l);
+    m = _copysignf(_powf(_fabs(m), 3.0f), m);
+    s = _copysignf(_powf(_fabs(s), 3.0f), s);
+
+    // to XYZ
+    float X = (l * 1.2270138511f) + (m * -0.5577999807f) + (s * 0.2812561482f);
+    float Y = (l * -0.0405801784f) + (m * 1.1122568696f) + (s * -0.0716766787f);
+    float Z = (l * -0.0763812845f) + (m * -0.4214819784f) + (s * 1.5861632204f);
+
+    // sweet Mcloving XYZ to DWG 
+    float R = (X * 1.51667204f) + (Y * -0.28147805f) + (Z * -0.14696363f);
+    float G = (X * -0.46491710f) + (Y * 1.25142378f) + (Z * 0.17488461f);
+    float B = (X * 0.06484905f) + (Y * 0.10913934f) + (Z * 0.76141462f);
+
+    return make_float3(R, G, B);
+}
+
+__DEVICE__ float3 ConvertLabLCH(float3 LabColor)
+{   
+    #define PI 3.1415926535897932384626
+    float3 LCHColor;
+
+    LCHColor.x = LabColor.x; // assign luminance directly
+    LCHColor.y = _sqrtf(LabColor.y * LabColor.y + LabColor.z * LabColor.z); // calculate chroma
+    LCHColor.z = _atan2f(LabColor.z, LabColor.y) * 180.0f / PI; // calculate hue in degrees
+    LCHColor.z = LCHColor.z < 0.0f ? LCHColor.z + 360.0f : LCHColor.z; // adjust hue to positive range
+
+    LCHColor.z /= 360.0f; // normalize hue to 0-1 range
+
+    return LCHColor; // return the lch color
+}
+
+__DEVICE__ float3 ConvertLCHLab(float3 LCHColor)
+{  
+    #define PI 3.1415926535897932384626
+    LCHColor.z *= 360.0f; // convert hue to degrees
+
+    float3 LabColor;
+    LabColor.x = LCHColor.x; // assign luminance directly
+    LabColor.y = LCHColor.y * _cosf(LCHColor.z * PI / 180.0f); // calculate a* from chroma and hue
+    LabColor.z = LCHColor.y * _sinf(LCHColor.z * PI / 180.0f); // calculate b* from chroma and hue
+
+    return LabColor; // return the lab color
+}
+
+	
+__DEVICE__ float3 transform(int p_Width, int p_Height, int p_X, int p_Y, float p_R, float p_G, float p_B) {
+	
+	float3 rgb = make_float3(p_R, p_G, p_B);
+    float3 output;
+
+    if (invert == 0) {
+	    rgb = DWGOKLab(rgb);
+        output = ConvertLabLCH(rgb);
+    } else {
+    rgb = ConvertLCHLab(rgb);
+    output = OKLabDWG(rgb);
+    }
+
+	return output;
+}
+	
+	
